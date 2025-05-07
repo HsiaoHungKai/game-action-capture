@@ -34,6 +34,9 @@ def handle_screenshot_and_save(key_pressed):
     screenshot_data = sct_instance.grab(monitor)
     img_to_process = np.array(screenshot_data)
     img_to_process = cv2.cvtColor(img_to_process, cv2.COLOR_BGRA2BGR)
+    
+    # Resize the image to 224x224
+    img_to_process = cv2.resize(img_to_process, (224, 224), interpolation=cv2.INTER_AREA)
 
     folder_path = ""
     action_name = ""
